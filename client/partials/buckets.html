@@ -1,0 +1,62 @@
+<div ng-controller='bucketsController'>
+		<script>
+			$(document).ready(function(){
+				var socket = io.connect();
+				$('#button').click(function(){
+					console.log('user-message value', $('.user-message').val());
+					console.log($('.new-message').val());
+					socket.emit('new_message', {user: $('.user-message').val(), message: $('.new-message').val()});
+				});
+				socket.on('new_message', function(data){
+					console.log(data);
+					console.log(data.message, 'data.message');
+					$('.messages').append('<p>'+ data.user+ ": " + data.message + '</p>');
+					$('.new-message').val('');
+				});
+				socket.on('new_user', function(data){
+					console.log(data, "data from the user entered socket");
+					// $('.messages').append('<p>' +data.givenName + " has entered the room! </p>");
+					// var mainUser = data.givenName;
+					// console.log('main user ', mainUser);
+				})
+				// socket.on('show_task', function(data){
+				// 	console.log(data, "show_task data");
+				// });
+			});
+		</script>
+		<div id='top-nav'>
+			<h1 class='welcome'>Welcome to Mini-Trello, {{user}}</h1><input type='text' name='bucketName' ng-model='newBucket.title' placeholder='Create a New topic..'><input class='add-bucket-button' type='submit' value='Add Bucket!' ng-click='addBucket()'>
+			<a class='logout' href='/'>Logout</a>
+		</div>
+		<div id='tasks-section'>
+			<div id='slider'>
+				<ul ui-sortable='sortableOptions' ng-model='buckets'>
+					<div class='bucket-border' ng-repeat='bucket in buckets'>
+						<a ng-click='removeBucket(bucket)'><img class='remove-x' src="https://cdn0.iconfinder.com/data/icons/huge-basic-icons-part-2/512/Cancel.png"></a>
+						<p class='bucket-title'>{{  bucket.title }}</p>
+						<ul class='task-list' ng-repeat='task in bucket.bucket_tasks'>
+							<li class='task-items' ng-click='removeTask(bucket, task)'>{{ task }}</li>
+						</ul>
+						<input class='bucket-task' type='text' name='bucketTask' ng-model='newTask.task' placeholder='Add a task!'>
+						<button id='task-submit' type='submit' ng-click='addTask(bucket, {task: newTask.task})'>Add Task</button>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div id='users-chat'>
+			<div class='users-box'>
+				<ul id='double'>
+					<li class='user-list' ng-repeat="user in users">{{user.givenName}}</li>
+				</ul>
+			</div>
+			<div class='chat-area'>
+				<div class='messages'>
+				</div>
+				<div class='submit-bar'>
+					<input class='new-message' type='text' name='new-message'>
+					<input class='user-message' type='hidden' value='{{user}}'>
+					<button id='button'>Enter</button>
+				</div>
+			</div>
+		</div>
+	</div>

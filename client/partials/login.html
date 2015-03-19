@@ -1,0 +1,42 @@
+
+<div ng-controller='bucketsController'>
+	  <style>
+	  .container {
+	  	text-align:center;
+	  	padding-top: 50px;
+	  }
+	  label{
+	  	text-align:left;
+	  }
+	  #welcome-message{
+	  	text-align:center;
+	  	margin-top: 100px;
+	  }
+	  </style>
+	  <script>
+	  	$(document).ready(function(){
+	  		$('#start-sockets').click(function(){
+	  			var socket = io.connect();
+	  			var user = $('.sr-only').val();
+	  			socket.emit('signed_in', user)
+	  		})
+	  	})
+	  </script>
+	<div class="container">
+		<h1 class="form-signin-heading">Login to Mini-Trello</h1>
+			<form class="form-signin">
+		        <label for="inputEmail" class="sr-only">Username</label>
+		        <input type="text" id="inputEmail" name='displayName' class="form-control" placeholder="Username" ng-model='newUser.displayName' required autofocus><br><br>
+		        <label for="inputPassword" class="sr-only">First Name</label>
+		        <input type="text" id="inputPassword" class="form-control" name='givenName' placeholder="First Name" ng-model='newUser.givenName' required>
+		        <button id='start-sockets' class="btn btn-lg btn-primary btn-block" type="submit" ng-click='addUser()'>Sign in</button>
+		      </form>
+
+		    </div>
+		    <div id='welcome-message'>
+		    	<p>Thank you for checking out my mini-version of <a href='http://www.trello.com' target='_blank'>Trello</a>! I built this site using the MEAN stack (MongoDB, Express, Node, Angular) and Socket.io.</p>
+			</div>
+	<!-- FacebookID: <input type='number' name='FBid' ng-model='newUser.facebookID'> -->
+	
+	<!-- <a href='/auth/facebook'>Facebook Login</a> -->
+</div>
