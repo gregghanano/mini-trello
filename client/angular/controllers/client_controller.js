@@ -1,5 +1,5 @@
 myApp.controller('bucketsController', function ($scope, $location, bucketFactory, $routeParams, localStorageService){
-	var socket = io.connect();
+	var socket = io.connect('https://minitrello.herokuapp.com/');
 	$scope.buckets = [];
 	// console.log($scope.buckets);
 	$scope.title = '';

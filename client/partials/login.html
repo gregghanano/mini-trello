@@ -16,7 +16,7 @@
 	  <script>
 	  	$(document).ready(function(){
 	  		$('#start-sockets').click(function(){
-	  			var socket = io.connect();
+	  			var socket = io.connect('https://minitrello.herokuapp.com/');
 	  			var user = $('.sr-only').val();
 	  			socket.emit('signed_in', user)
 	  		})

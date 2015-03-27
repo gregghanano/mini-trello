@@ -1,5 +1,5 @@
 myApp.factory('bucketFactory', function($http){
-	var socket = io.connect();
+	var socket = io.connect('https://minitrello.herokuapp.com/');
 	var buckets = [];
 	var users = [];
 	// console.log(buckets);
