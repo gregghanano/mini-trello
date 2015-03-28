@@ -1,7 +1,7 @@
 <div ng-controller='bucketsController'>
 		<script>
 			$(document).ready(function(){
-				var socket = io.connect('https://minitrello.herokuapp.com/');
+				var socket = io.connect();
 				$('#button').click(function(){
 					console.log('user-message value', $('.user-message').val());
 					console.log($('.new-message').val());
