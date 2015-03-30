@@ -2,30 +2,37 @@
 		<script>
 			$(document).ready(function(){
 				var socket = io.connect();
+				// $('.new-message').keypress(function (e){
+				// 	var key=e.which
+				// 	console.log(key, "key!");
+				// 	if(key === 13){
+				// 		return false;
+
+				// 	}
+					
+				// });
 				$('#button').click(function(){
+					console.log('made it into the button click!');
 					console.log('user-message value', $('.user-message').val());
 					console.log($('.new-message').val());
 					socket.emit('new_message', {user: $('.user-message').val(), message: $('.new-message').val()});
 				});
+
 				socket.on('new_message', function(data){
-					console.log(data);
-					console.log(data.message, 'data.message');
 					$('.messages').append('<p>'+ data.user+ ": " + data.message + '</p>');
 					$('.new-message').val('');
 				});
 				socket.on('new_user', function(data){
 					console.log(data, "data from the user entered socket");
-					// $('.messages').append('<p>' +data.givenName + " has entered the room! </p>");
-					// var mainUser = data.givenName;
-					// console.log('main user ', mainUser);
 				})
-				// socket.on('show_task', function(data){
-				// 	console.log(data, "show_task data");
-				// });
 			});
 		</script>
 		<div id='top-nav'>
-			<h1 class='welcome'>Welcome to Mini-Trello, {{user}}</h1><input type='text' name='bucketName' ng-model='newBucket.title' placeholder='Create a New topic..'><input class='add-bucket-button' type='submit' value='Add Bucket!' ng-click='addBucket()'>
+			<h1 class='welcome'>Welcome to Mini-Trello, {{user}}</h1>
+			<form class='add-bucket-form' ng-submit='addBucket()'>
+			<input type='text' name='bucketName' ng-model='newBucket.title' placeholder='Create a New topic..'>
+			<!-- <input class='add-bucket-button' type='submit' value='Add Bucket!' ng-click='addBucket()'> -->
+			</form>
 			<a class='logout' href='/'>Logout</a>
 		</div>
 		<div id='tasks-section'>
@@ -37,19 +44,23 @@
 						<ul class='task-list' ng-repeat='task in bucket.bucket_tasks'>
 							<li class='task-items' ng-click='removeTask(bucket, task)'>{{ task }}</li>
 						</ul>
-						<input class='bucket-task' type='text' name='bucketTask' ng-model='newTask.task' placeholder='Add a task!'>
-						<button id='task-submit' type='submit' ng-click='addTask(bucket, {task: newTask.task})'>Add Task</button>
+						<form class='task-form' ng-submit='addTask(bucket, {task: newTask.task})'>
+							<input class='bucket-task' type='text' name='bucketTask' ng-model='newTask.task' placeholder='Add a task!'>
+							<!-- <button id='task-submit' type='submit' ng-click='addTask(bucket, {task: newTask.task})'>Add Task</button> -->
+						</form>
 					</div>
 				</ul>
 			</div>
 		</div>
 		<div id='users-chat'>
 			<div class='users-box'>
+				<h5 class='user-heading'>Users in the Mongo Database</h5>
 				<ul id='double'>
 					<li class='user-list' ng-repeat="user in users">{{user.givenName}}</li>
 				</ul>
 			</div>
 			<div class='chat-area'>
+				<h5 class='chat-heading'>Chat area!</h5>
 				<div class='messages'>
 				</div>
 				<div class='submit-bar'>

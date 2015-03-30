@@ -13,15 +13,7 @@
 	  	margin-top: 100px;
 	  }
 	  </style>
-	  <script>
-	  	$(document).ready(function(){
-	  		$('#start-sockets').click(function(){
-	  			var socket = io.connect();
-	  			var user = $('.sr-only').val();
-	  			socket.emit('signed_in', user)
-	  		})
-	  	})
-	  </script>
+
 	<div class="container">
 		<h1 class="form-signin-heading">Login to Mini-Trello</h1>
 			<form class="form-signin">
