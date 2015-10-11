@@ -1,17 +1,9 @@
 var buckets = require('../controllers/buckets');
-// var passport = require("passport");
-// var FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function(app){
 	app.get('/', function(req, res){
 	res.render('index');
 	})
-
-	// app.get('/auth/facebook', passport.authenticate('facebook', {
-	// 	scope: ['email']
-	// }));
-
-	// app.get('/auth/facebook/callback', buckets.oauthCallback('facebook'));
 
 	app.post('/addBucket', function(req, res){
 		buckets.addBucket(req, res);
@@ -29,11 +21,6 @@ module.exports = function(app){
 		buckets.removeTask(req, res);
 	})
 
-	// app.get('/auth/facebook', passport.authenticate('facebook'));
-	// app.get('/auth/facebook/callback',
-	// passport.authenticate('facebook', { successRedirect: '/index',
-	// 									failureRedirect: '/login'}));
-
 	app.post('/addUser', function(req, res){
 		buckets.addUser(req,res);
 	})
@@ -47,7 +34,4 @@ module.exports = function(app){
 		buckets.removeBucket(req,res);
 	})
 
-	// app.get('/addUser', function(req, res){
-	// 	buckets.addUser(req,res);
-	// })
 }

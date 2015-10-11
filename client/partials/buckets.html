@@ -2,19 +2,7 @@
 		<script>
 			$(document).ready(function(){
 				var socket = io.connect();
-				// $('.new-message').keypress(function (e){
-				// 	var key=e.which
-				// 	console.log(key, "key!");
-				// 	if(key === 13){
-				// 		return false;
-
-				// 	}
-					
-				// });
 				$('#button').click(function(){
-					console.log('made it into the button click!');
-					console.log('user-message value', $('.user-message').val());
-					console.log($('.new-message').val());
 					socket.emit('new_message', {user: $('.user-message').val(), message: $('.new-message').val()});
 				});
 
@@ -23,15 +11,13 @@
 					$('.new-message').val('');
 				});
 				socket.on('new_user', function(data){
-					console.log(data, "data from the user entered socket");
 				})
 			});
 		</script>
 		<div id='top-nav'>
-			<h1 class='welcome'>Welcome to Mini-Trello, {{user}}</h1>
+			<h1 class='welcome'>Welcome to Pin-It, {{user}}</h1>
 			<form class='add-bucket-form' ng-submit='addBucket()'>
 			<input type='text' name='bucketName' ng-model='newBucket.title' placeholder='Create a New topic..'>
-			<!-- <input class='add-bucket-button' type='submit' value='Add Bucket!' ng-click='addBucket()'> -->
 			</form>
 			<a class='logout' href='/'>Logout</a>
 		</div>
@@ -46,7 +32,6 @@
 						</ul>
 						<form class='task-form' ng-submit='addTask(bucket, {task: newTask.task})'>
 							<input class='bucket-task' type='text' name='bucketTask' ng-model='newTask.task' placeholder='Add a task!'>
-							<!-- <button id='task-submit' type='submit' ng-click='addTask(bucket, {task: newTask.task})'>Add Task</button> -->
 						</form>
 					</div>
 				</ul>

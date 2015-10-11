@@ -13,7 +13,5 @@ var UserSchema = new mongoose.Schema({
 	givenName: String
 });
 
-// UserSchema.path('name').required(true, "you need to write a name!");
-
 var Bucket = mongoose.model('Buckets', BucketSchema);
 var User = mongoose.model('Users', UserSchema);

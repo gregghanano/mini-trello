@@ -104,7 +104,7 @@ myApp.controller('bucketsController', function ($scope, $location, bucketFactory
 		var bucketIndex = $scope.buckets.indexOf(bucket);
 		var oneBucket = $scope.buckets[bucketIndex];
 		bucketFactory.removeBucketTask(oneBucket, task, function(data){
-		 	console.log("back in the controller");
+			//
 		})
 	}
 	//--------------USERS------------------
@@ -112,7 +112,6 @@ myApp.controller('bucketsController', function ($scope, $location, bucketFactory
 		console.log($scope.newUser, "adding a new user");
 		bucketFactory.addFactoryUsers($scope.newUser, function(data){
 			localStorageService.set('name', data.givenName);
-			console.log(data);
 			$location.path('/buckets');
 
 		})

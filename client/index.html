@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Mini-Trello</title>
+	<title>Pin-It</title>
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<!-- jQuery ui -->
@@ -29,7 +29,6 @@
 		}
 		#top-nav{
 			display:block;
-			/*background:red;*/
 			color:white;
 		}
 		.welcome{
@@ -49,15 +48,11 @@
 		}
 		#tasks-section {
 			vertical-align:top;
-			/*background:yellow;*/
 			display:inline-block;
 			width: 75%;
-			/*max-height:200px;*/
-			/*overflow-x:scroll;*/
 		}
 		#users-chat{
 			vertical-align:top;
-			/*background:green;*/
 			display:inline-block;
 			float:right;
 			width:25%;
@@ -69,6 +64,7 @@
 			height:200px;
 			background-color:#F6F6F6;
 			border-radius:10px;
+			overflow:scroll;
 		}
 		.chat-area {
 			border:1px solid black;
@@ -78,10 +74,8 @@
 			border-radius:10px;
 		}
 		.messages{
-			/*background:blue;*/
 			width:95%;
 			height: 75%;
-			/*margin-left:5px;*/
 			padding-left:10px;
 			background-color:white;
 			margin-bottom:20px;
@@ -91,7 +85,6 @@
 		.submit-bar {
 			float:bottom;
 			margin-left: 5px;
-			/*width:200px;*/
 		}
 		.task-items:hover {
 			text-decoration:line-through;
@@ -122,13 +115,6 @@
 			border-radius:5px;
 			margin-left:5px;
 		}
-/*		#slider{
-			background-color:red;
-			width: 1000px;
-			height: 500px;
-			overflow-x:scroll;
-			overflow-y:hidden;
-		}*/
 		#double{
 			overflow:hidden;
 		}

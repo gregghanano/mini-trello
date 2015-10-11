@@ -1,5 +1,5 @@
 {
-  "name": "Mini_Trello",
+  "name": "Pin_it",
   "dependencies": {
     "angular-local-storage": "^0.1.5",
     "body-parser": "^1.10.1",
@@ -16,7 +16,7 @@
     "start": "node server.js"
   },
   "version": "1.0.0",
-  "description": "A miniature version of Trello for my portfolio",
+  "description": "A project management tool for my portfolio, built in the MEAN stack",
   "main": "server.js",
   "devDependencies": {},
   "repository": {
