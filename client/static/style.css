@@ -1,0 +1,126 @@
+*{
+	font-family:arial, sans-serif;
+}
+body{
+	background-color: rgb(14, 116, 175);
+}
+.add-bucket-button{
+	margin-left:10px;
+}
+#top-nav{
+	display:block;
+	color:white;
+}
+.welcome{
+	display:inline-block;
+	margin-right:20px;
+}
+.bucket-border{
+	vertical-align:top;
+	display:inline-block;
+	border:1px solid black;
+	min-height:200px;
+	width:200px;
+	margin: 10px;
+	padding: 10px;
+	background-color:#F6F6F6;
+	border-radius: 10px;
+}
+#tasks-section {
+	vertical-align:top;
+	display:inline-block;
+	width: 75%;
+}
+#users-chat{
+	vertical-align:top;
+	display:inline-block;
+	float:right;
+	width:25%;
+	height:900px;
+	margin-top:25px;
+}
+.users-box {
+	border:1px solid black;
+	height:200px;
+	background-color:#F6F6F6;
+	border-radius:10px;
+	overflow:scroll;
+}
+.chat-area {
+	border:1px solid black;
+	height:400px;
+	margin-top:10px;
+	background-color:#F6F6F6;
+	border-radius:10px;
+}
+.messages{
+	width:95%;
+	height: 75%;
+	padding-left:10px;
+	background-color:white;
+	margin-bottom:20px;
+	overflow:scroll;
+	border-radius:10px;
+}
+.submit-bar {
+	float:bottom;
+	margin-left: 5px;
+}
+.task-items:hover {
+	text-decoration:line-through;
+	cursor:pointer;
+}
+.bucket-title{
+	display:inline-block;
+}
+.remove-x{
+	width:8px;
+	height:8px;
+	display:inline;
+	float:right;
+}
+.remove-x:hover{
+	cursor:pointer;
+}
+.bucket-task{
+	width: 110px;
+}
+.bucket-tast, #task-submit{
+	margin-top: 40px;
+	float:bottom;
+}
+#task-submit{
+	background-color:rgb(14, 116, 175);
+	color:white;
+	border-radius:5px;
+	margin-left:5px;
+}
+#double{
+	overflow:hidden;
+}
+.user-list{
+	line-height:1.5em;
+	text-decoration:none;
+	display:inline;
+	float:left;
+}
+#double .user-list{
+	width: 50%;
+}
+.task-form{
+	float:bottom;
+	margin-top:20px;
+}
+.user-heading{
+	margin-left: 10px;
+}
+.chat-heading{
+	margin:0px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.add-bucket-form{
+	display:inline;
+	margin-right: 50px;
+}

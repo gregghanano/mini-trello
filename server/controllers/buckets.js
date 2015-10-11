@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var Bucket = mongoose.model('Buckets');
 var User = mongoose.model('Users');
-var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
 
 var buckets = {};
 //code goes here
